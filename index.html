@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Asistencia Estudiantil</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div style="display:flex;align-items:center;gap:24px;">
+            <img src="logo.png" alt="Logo de la institución" class="logo-institucion" id="logoInstitucion" style="max-width:120px;max-height:120px;" onerror="this.style.display='none'">
+            <div>
+                <h1 class="logo">
+                    <span class="logo-icon"></span>
+                    Registro de Asistencia
+                </h1>
+                <div id="nombreInstituto" style="font-size:2rem;font-weight:600;margin-top:8px;">INED San Pedro Sacatepéquez</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="scan-section">
+            <div class="scan-layout">
+                <div class="foto-container">
+                    <div id="fotoEstudiante" class="foto-estudiante">
+                        <img id="fotoImg" src="" alt="Foto del estudiante" class="hidden">
+                        <div id="fotoPlaceholder" class="foto-placeholder">
+                            <span class="foto-placeholder-icon">👤</span>
+                            <span>Escanee un carnet o busque para ver la foto</span>
+                        </div>
+                    </div>
+                    <div id="fotoDatos" class="foto-datos">
+                        <p id="fotoNombre" class="foto-nombre">Nombre del estudiante</p>
+                        <p id="fotoGrado" class="foto-grado">Grado</p>
+                        <p id="fotoCarnet" class="foto-carnet">Carnet: ---</p>
+                    </div>
+                </div>
+                <div class="scan-form-container">
+                    <p class="instruccion">Pase el carnet por el lector de código de barras o use el buscador</p>
+                    <form id="scanForm" class="scan-form">
+                        <input
+                            type="text"
+                            id="carnetInput"
+                            class="carnet-input"
+                            placeholder="Código del carnet aparecerá aquí..."
+                            autocomplete="off"
+                            autofocus
+                            style="font-size:1.5rem;padding:16px;width:350px;"
+                        >
+                    </form>
+                    <!-- Buscador eliminado, solo queda el de la barra de acciones -->
+                    <p class="scan-hint">O haga clic en el recuadro y escanee</p>
+                </div>
+            </div>
+        </section>
+
+        <div id="mensajeFlash" class="mensaje-flash hidden"></div>
+
+        <section class="registros-section">
+            <div class="registros-header">
+                <h2>Últimos registros</h2>
+                <div class="acciones">
+                    <button type="button" id="btnReporteAsistencia" class="btn btn-success">Reporte de asistencia</button>
+                    <button type="button" id="btnReporteAusencia" class="btn btn-warning">Reporte de ausencia</button>
+                    <div class="buscador-estudiante" style="display:inline-block; margin-right:10px;">
+                        <input type="text" id="buscadorInput" class="buscador-input" placeholder="Buscar por nombre o carnet..." style="padding:6px; border-radius:4px; border:1px solid #ccc;">
+                        <button type="button" id="btnBuscar" class="btn btn-info" style="margin-left:4px;">Buscar</button>
+                    </div>
+                    <button type="button" id="btnLimpiar" class="btn btn-secondary">Limpiar historial</button>
+                </div>
+            </div>
+            <div class="registros-container">
+                <table class="tabla-registros" id="tablaRegistros">
+                    <thead>
+                        <tr>
+                            <th>Carnet</th>
+                            <th>Nombre</th>
+                            <th>Grado</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaBody">
+                    </tbody>
+                </table>
+                <p id="sinRegistros" class="sin-registros">No hay registros aún. Escanee un carnet para comenzar.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Registro de Asistencia Estudiantil</p>
+    </footer>
+
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

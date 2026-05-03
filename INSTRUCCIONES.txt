@@ -1,0 +1,20 @@
+ESTUDIANTES (Excel o CSV)
+=========================
+Coloque el archivo de estudiantes en: datos/estudiantes.xlsx
+o en: datos/estudiantes.csv
+
+Formato de columnas (primera fila = encabezado):
+  Carnet  |  Nombre  |  Grado
+
+Ejemplo en Excel:
+  A1: Carnet   B1: Nombre           C1: Grado
+  A2: 12345    B2: Juan Pérez       C2: 10° A
+  A3: 2024001  B3: María García     C3: 11° B
+
+El archivo datos/estudiantes.csv es una plantilla. Puede:
+  - Editarlo en Excel y guardar como .xlsx
+  - O usarlo directamente como .csv
+
+LOGO DE LA INSTITUCIÓN
+======================
+Coloque logo.png en la misma carpeta que index.html.
